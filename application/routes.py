@@ -13,29 +13,35 @@ def index():
     return render_template("index.html")
 
 #decorator to access the service
-@app.route("/bankclassify", methods=['GET', 'POST'])
-def bankclassify():
+@app.route("/avclassify", methods=['GET', 'POST'])
+def avclassify():
 
     #extract form inputs
-    age = request.form.get("age")
-    job = request.form.get("job")
-    marital = request.form.get("marital")
-    education = request.form.get("education")
-    default = request.form.get("default")
-    balance = request.form.get("balance")
-    housing = request.form.get("housing")
-    loan = request.form.get("loan")
+    SafeAv = request.form.get("SafeAv")
+    AVImpact = request.form.get("AVImpact")
+    ProvingGround = request.form.get("ProvingGround")
+    FamiliarityTech = request.form.get("FamiliarityTech")
+    SchoolZoneManual = request.form.get("SchoolZoneManual")
+    SharedPedestrian = request.form.get("SharedPedestrian")
+    ZipCode = request.form.get("ZipCode")
+    FamiliarityNews = request.form.get("FamiliarityNews")
 
    #convert data to json
-    input_data = json.dumps({"age": age, "job": job, "marital": marital, "education": education, "default": default, "balance": balance, "housing": housing, "loan": loan})
+    input_data = json.dumps({"SafeAv": SafeAv, "AVImpact": AVImpact, "ProvingGround": ProvingGround,
+                             "FamiliarityTech": FamiliarityTech, "SchoolZoneManual": SchoolZoneManual, 
+                             "SharedPedestrian": SharedPedestrian, "ZipCode": ZipCode, 
+                             "FamiliarityNews": FamiliarityNews})
 
     #url for bank marketing model
-    url = "http://localhost:5000/api"
-    #url = "https://bank-model-app.herokuapp.com/api"
+    url = "http://localhost:5000/api" #for local machine testing
+    #url = "https://bank-model-app.herokuapp.com/api" #for hosting on Heroku
   
     #post data to url
     results =  requests.post(url, input_data)
 
     #send input values and prediction result to index.html for display
-    return render_template("index.html", age = age, job = job, marital = marital, education = education, default = default, balance = balance, housing = housing, loan = loan,  results=results.content.decode('UTF-8'))
+    return render_template("index.html", SafeAv = SafeAv, AVImpact = AVImpact, ProvingGround = ProvingGround, 
+                           FamiliarityTech = FamiliarityTech, SchoolZoneManual = SchoolZoneManual, 
+                           SharedPedestrian = SharedPedestrian, ZipCode = ZipCode, FamiliarityNews = FamiliarityNews,  
+                           results=results.content.decode('UTF-8'))
   
