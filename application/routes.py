@@ -17,20 +17,21 @@ def index():
 def avclassify():
 
     #extract form inputs
-    SafeAv = request.form.get("SafeAv")
-    AVImpact = request.form.get("AVImpact")
-    ProvingGround = request.form.get("ProvingGround")
     FamiliarityTech = request.form.get("FamiliarityTech")
+    SharePerformanceData = request.form.get("SharePerformanceData")
+    ReportSafetyIncedent = request.form.get("ReportSafetyIncedent")
+    ArizonaCrash = request.form.get("ArizonaCrash")
+    Speed25Mph = request.form.get("Speed25Mph")
+    ProvingGround = request.form.get("ProvingGround")
+    AVImpact = request.form.get("AVImpact")
     SchoolZoneManual = request.form.get("SchoolZoneManual")
-    SharedPedestrian = request.form.get("SharedPedestrian")
-    ZipCode = request.form.get("ZipCode")
-    FamiliarityNews = request.form.get("FamiliarityNews")
 
-   #convert data to json
-    input_data = json.dumps({"SafeAv": SafeAv, "AVImpact": AVImpact, "ProvingGround": ProvingGround,
-                             "FamiliarityTech": FamiliarityTech, "SchoolZoneManual": SchoolZoneManual, 
-                             "SharedPedestrian": SharedPedestrian, "ZipCode": ZipCode, 
-                             "FamiliarityNews": FamiliarityNews})
+    #convert data to json
+    input_data = json.dumps({"FamiliarityTech": FamiliarityTech, "SharePerformanceData": SharePerformanceData, 
+                            "ReportSafetyIncedent": ReportSafetyIncedent, "ArizonaCrash": ArizonaCrash, 
+                            "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AVImpact": AVImpact, 
+                            "SchoolZoneManual": SchoolZoneManual})
+    
 
     #url for bank marketing model
     url = "http://localhost:5000/api" #for local machine testing
@@ -40,8 +41,7 @@ def avclassify():
     results =  requests.post(url, input_data)
 
     #send input values and prediction result to index.html for display
-    return render_template("index.html", SafeAv = SafeAv, AVImpact = AVImpact, ProvingGround = ProvingGround, 
-                           FamiliarityTech = FamiliarityTech, SchoolZoneManual = SchoolZoneManual, 
-                           SharedPedestrian = SharedPedestrian, ZipCode = ZipCode, FamiliarityNews = FamiliarityNews,  
+    return render_template("index.html", FamiliarityTech = FamiliarityTech, SharePerformanceData = SharePerformanceData,
+                           ReportSafetyIncedent = ReportSafetyIncedent, ArizonaCrash = ArizonaCrash, Speed25Mph = Speed25Mph,
+                           ProvingGround = ProvingGround, AVImpact = AVImpact, SchoolZoneManual = SchoolZoneManual,
                            results=results.content.decode('UTF-8'))
-  
