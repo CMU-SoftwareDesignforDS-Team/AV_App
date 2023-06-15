@@ -8,7 +8,7 @@
         <h2>Welcome to AV Survey App</h2>
         <h3>Select Customer Opinion</h3>
 		<hr>
-        <form action = "{{ url_for('AVclassify') }}" method="POST">
+        <form action = "{{ url_for('avclassify') }}" method="POST">
             <table>
 				<tr>
                     <td><h4>How familiar are you with the technology behind autonomous vehicles?</h4>
@@ -95,14 +95,14 @@
              {% if (results) %} 
              <h3> Customer prediction: {{ results }}  </h3>
              <p> for following features: </p>
-             <p> SafeAv: {{SafeAV}} </p>
-			 <p> AvImpact: {{AvImpact}} </P>
+             <p> FamiliarityTech: {{FamiliarityTech}} </p>
+			 <p> SharePerformanceData: {{SharePerformanceData}} </P>
+			 <p> ReportSafetyIncedent: {{ReportSafetyIncedent}} </p>
+			 <p> ArizonaCrash: {{ArizonaCrash}} </p>
+             <p> Speed25Mph: {{Speed25Mph}} </p>
 			 <p> ProvingGround: {{ProvingGround}} </p>
-			 <p> FamiliarityTech: {{FamiliarityTech}} </p>
-             <p> SchoolZoneManual: {{SchoolZoneManual}} </p>
-			 <p> SharedPedestrian: {{SharedPedestrian}} </p>
-			 <p> ZipCode: {{ZipCode}} </p>
-			 <p> FamiliarityNews: {{FamiliarityNews}}</p>
+			 <p> AvImpact: {{AvImpact}} </p>
+			 <p> SchoolZoneManual: {{SchoolZoneManual}}</p>
              {% endif %} 
         </form>
 </body>
