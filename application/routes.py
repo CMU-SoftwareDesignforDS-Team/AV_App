@@ -29,7 +29,7 @@ def avclassify():
     #convert data to json
     input_data = json.dumps({"FamiliarityTech": FamiliarityTech, "SharePerformanceData": SharePerformanceData, 
                             "ReportSafetyIncident": ReportSafetyIncident, "ArizonaCrash": ArizonaCrash, 
-                            "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AVImpact": AvImpact, 
+                            "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AvImpact": AvImpact, 
                             "SchoolZoneManual": SchoolZoneManual})
     
 
