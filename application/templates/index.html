@@ -10,25 +10,51 @@
 		<hr>
         <form action = "{{ url_for('AVclassify') }}" method="POST">
             <table>
-                <tr>
-                    <td><h4>How safe do you feel sharing the road with autonomous vehicles?</h4>
-                        <select name = "SafeAv">
-                            <option value="3">Neutral</option>
-							<option value="1">Very Unsafe</option>
-                            <option value="2">Unsafe</option>
-                            <option value="4">Safe</option>
-                            <option value="5">Very Safe</option>
+				<tr>
+                    <td><h4>How familiar are you with the technology behind autonomous vehicles?</h4>
+                        <select name = "FamiliarityTech"> 
+                            <option value="1">Not Familiar At All</option>
+                            <option value="2">Somewhat Familiar</option>
+                            <option value="3">Mostly Familiar</option>
+                            <option value="4">Extremely Familiar</option> 
+                        </select>
+                    </td>
+                </tr>
+				<tr>
+                    <td><h4>Should AV companies be required to disclose information and data of their cars with the proper authorities?</h4>
+                        <select name = "SharePerformanceData">
+							<option value="not sure">Not Sure</option>
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
                         </select>
                     </td>
 				</tr>
 				<tr>
-                    <td><h4>What effect do you think that AVs will have on traffic injuries and fatalities?</h4>
-                        <select name = "AvImpact">
-                            <option value="3">No Effect</option>
-                            <option value="1">Significantly Worse</option>
-                            <option value="2">Slightly Worse</option>
-                            <option value="4">Slightly Better</option>
-                            <option value="5">Significantly Better</option>
+                    <td><h4>Should AV companies be required to report all safety-related incidents with the proper authorities?</h4>
+                        <select name = "ReportSafetyIncident">
+							<option value="not sure">Not Sure</option>
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+				</tr>
+                <tr>
+                    <td><h4>In March of 2018; an AV struck and killed Elaine Herzberg; a pedestrian; in Tempe; AZ. As a pedestrian and/or bicyclist; how did this event and its outcome change your opinion about sharing the road with AVs?</h4>
+                        <select name = "ArizonaCrash">
+                            <option value="3">No Change</option>
+							<option value="1">Significantly more Negative opinion</option>
+                            <option value="2">Somewhat more Negative opinion </option>
+                            <option value="4">Somewhat more Positive opinion</option>
+                            <option value="5">Significantly more Positive opinion</option>
+                        </select>
+                    </td>
+				</tr>
+				<tr>
+                    <td><h4>Should AV speeds be capped at 25 mph when operating in autonomous mode?</h4>
+                        <select name = "Speed25Mph">
+							<option value="not sure">Not Sure</option>
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
                         </select>
                     </td>
 				</tr>
@@ -44,15 +70,16 @@
                     </td>
 				</tr>
 				<tr>
-                    <td><h4>How familiar are you with the technology behind autonomous vehicles?</h4>
-                        <select name = "FamiliarityTech"> 
-                            <option value="1">Not Familiar At All</option>
-                            <option value="2">Somewhat Familiar</option>
-                            <option value="3">Mostly Familiar</option>
-                            <option value="4">Extremely Familiar</option> 
+                    <td><h4>What effect do you think that AVs will have on traffic injuries and fatalities?</h4>
+                        <select name = "AvImpact">
+                            <option value="3">No Effect</option>
+                            <option value="1">Significantly Worse</option>
+                            <option value="2">Slightly Worse</option>
+                            <option value="4">Slightly Better</option>
+                            <option value="5">Significantly Better</option>
                         </select>
                     </td>
-                </tr>
+				</tr>
                 <tr>
                     <td><h4>Do you think that AVs should operate in manual mode while in an active school zone?</h4>
                         <select name = "SchoolZoneManual">
@@ -62,31 +89,6 @@
                         </select>
                     </td>
 				</tr>
-				<tr>
-                    <td><h4>Have you been near an AV while walking or using a mobility device in Pittsburgh?</h4>
-                        <select name = "SharedPedestrian">
-							<option value="not sure">Not Sure</option>
-                            <option value="yes">Yes</option> 
-                            <option value="no">No</option>
-                        </select>
-					</td>
-                </tr>
-				<tr>
-					<td><h4>ZipCode</h4>
-						<input type="text" name="ZipCode" inputmode="numeric" placeholder="Enter ZipCode"> 
-                    </td>
-				</tr>
-				<tr>
-                    <td><h4>To what extent have you been paying attention to the subject of AVs in the news?</h4>
-                        <select name = "FamiliarityNews">
-                            <option value="1">Not At All</option>
-                            <option value="2">To Little Extent</option>
-                            <option value="3">To Some Extent</option>
-                            <option value="4">To a Moderate Extent</option>
-							<option value="5">To a Large Extent</option>
-                        </select>
-                    </td>            
-                </tr>
             </table>
 			<hr>			
             <p><input type="submit" value="Will the customer take AV taxi ride?"></p>
