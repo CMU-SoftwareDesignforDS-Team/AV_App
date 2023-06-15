@@ -33,7 +33,7 @@ def avclassify():
                             "SchoolZoneManual": SchoolZoneManual})
     
 
-    #url for bank marketing model
+    #url for AV model
     #url = "http://localhost:3000/api" #for local machine testing
     url = "hhttps://av-model-app-6f2c9d64a330.herokuapp.com/api" #for hosting on Heroku
   
