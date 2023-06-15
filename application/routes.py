@@ -23,7 +23,7 @@ def avclassify():
     ArizonaCrash = request.form.get("ArizonaCrash")
     Speed25Mph = request.form.get("Speed25Mph")
     ProvingGround = request.form.get("ProvingGround")
-    AvImpact = request.form.get("AVImpact")
+    AvImpact = request.form.get("AvImpact")
     SchoolZoneManual = request.form.get("SchoolZoneManual")
 
     #convert data to json
