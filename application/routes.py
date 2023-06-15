@@ -19,17 +19,17 @@ def avclassify():
     #extract form inputs
     FamiliarityTech = request.form.get("FamiliarityTech")
     SharePerformanceData = request.form.get("SharePerformanceData")
-    ReportSafetyIncedent = request.form.get("ReportSafetyIncedent")
+    ReportSafetyIncident = request.form.get("ReportSafetyIncident")
     ArizonaCrash = request.form.get("ArizonaCrash")
     Speed25Mph = request.form.get("Speed25Mph")
     ProvingGround = request.form.get("ProvingGround")
-    AVImpact = request.form.get("AVImpact")
+    AvImpact = request.form.get("AVImpact")
     SchoolZoneManual = request.form.get("SchoolZoneManual")
 
     #convert data to json
     input_data = json.dumps({"FamiliarityTech": FamiliarityTech, "SharePerformanceData": SharePerformanceData, 
-                            "ReportSafetyIncedent": ReportSafetyIncedent, "ArizonaCrash": ArizonaCrash, 
-                            "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AVImpact": AVImpact, 
+                            "ReportSafetyIncident": ReportSafetyIncident, "ArizonaCrash": ArizonaCrash, 
+                            "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AVImpact": AvImpact, 
                             "SchoolZoneManual": SchoolZoneManual})
     
 
@@ -42,6 +42,6 @@ def avclassify():
 
     #send input values and prediction result to index.html for display
     return render_template("index.html", FamiliarityTech = FamiliarityTech, SharePerformanceData = SharePerformanceData,
-                           ReportSafetyIncedent = ReportSafetyIncedent, ArizonaCrash = ArizonaCrash, Speed25Mph = Speed25Mph,
-                           ProvingGround = ProvingGround, AVImpact = AVImpact, SchoolZoneManual = SchoolZoneManual,
+                           ReportSafetyIncident = ReportSafetyIncident, ArizonaCrash = ArizonaCrash, Speed25Mph = Speed25Mph,
+                           ProvingGround = ProvingGround, AVImpact = AvImpact, SchoolZoneManual = SchoolZoneManual,
                            results=results.content.decode('UTF-8'))
