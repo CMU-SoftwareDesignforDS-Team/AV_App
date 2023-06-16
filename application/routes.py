@@ -35,7 +35,7 @@ def avclassify():
 
     #url for AV model
     #url = "http://localhost:3000/api" #for local machine testing
-    url = "hhttps://av-model-app-6f2c9d64a330.herokuapp.com/api" #for hosting on Heroku
+    url = "https://av-model-app-6f2c9d64a330.herokuapp.com/api" #for hosting on Heroku
   
     #post data to url
     results =  requests.post(url, input_data)
@@ -43,5 +43,5 @@ def avclassify():
     #send input values and prediction result to index.html for display
     return render_template("index.html", FamiliarityTech = FamiliarityTech, SharePerformanceData = SharePerformanceData,
                            ReportSafetyIncident = ReportSafetyIncident, ArizonaCrash = ArizonaCrash, Speed25Mph = Speed25Mph,
-                           ProvingGround = ProvingGround, AVImpact = AvImpact, SchoolZoneManual = SchoolZoneManual,
+                           ProvingGround = ProvingGround, AvImpact = AvImpact, SchoolZoneManual = SchoolZoneManual,
                            results=results.content.decode('UTF-8'))
