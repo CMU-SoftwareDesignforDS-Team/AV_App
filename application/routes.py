@@ -6,17 +6,17 @@ import requests
 import numpy
 import pandas as pd
 
-#decorator to access the app
+#Access the app
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template("index.html")
 
-#decorator to access the service
+#Access the service
 @app.route("/avclassify", methods=['GET', 'POST'])
 def avclassify():
 
-    #extract form inputs
+    #Get inputs from index.html
     FamiliarityTech = request.form.get("FamiliarityTech")
     SharePerformanceData = request.form.get("SharePerformanceData")
     ReportSafetyIncident = request.form.get("ReportSafetyIncident")
@@ -26,7 +26,7 @@ def avclassify():
     AvImpact = request.form.get("AvImpact")
     SchoolZoneManual = request.form.get("SchoolZoneManual")
 
-    #convert data to json
+    #Convert the inputs from index.html to json data
     input_data = json.dumps({"FamiliarityTech": FamiliarityTech, "SharePerformanceData": SharePerformanceData, 
                             "ReportSafetyIncident": ReportSafetyIncident, "ArizonaCrash": ArizonaCrash, 
                             "Speed25Mph": Speed25Mph, "ProvingGround": ProvingGround, "AvImpact": AvImpact, 
@@ -34,13 +34,13 @@ def avclassify():
     
 
     #url for AV model
-    #url = "http://localhost:3000/api" #for local machine testing
-    url = "https://av-model-app-6f2c9d64a330.herokuapp.com/api" #for hosting on Heroku
+    #url = "http://localhost:3000/api" #used for local machine testing - comment out when using Heroku
+    url = "https://av-model-app-6f2c9d64a330.herokuapp.com/api" #for hosting on Heroku - comment out if local testing
   
-    #post data to url
+    #Sends POST request to the API with data input from index.html
     results =  requests.post(url, input_data)
 
-    #send input values and prediction result to index.html for display
+    #Sends user input and the model prediction to index.html to be displayed
     return render_template("index.html", FamiliarityTech = FamiliarityTech, SharePerformanceData = SharePerformanceData,
                            ReportSafetyIncident = ReportSafetyIncident, ArizonaCrash = ArizonaCrash, Speed25Mph = Speed25Mph,
                            ProvingGround = ProvingGround, AvImpact = AvImpact, SchoolZoneManual = SchoolZoneManual,
